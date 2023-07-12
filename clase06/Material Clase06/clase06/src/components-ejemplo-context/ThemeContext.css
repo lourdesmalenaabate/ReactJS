@@ -1,0 +1,28 @@
+.body {
+  margin: 0;
+  padding: 0;
+  background-color: #ccc;
+}
+
+.dark {
+  background-color: #fff;
+  filter: invert(1);
+}
+
+.header {
+  height: 150px;
+}
+
+.main {
+  height: calc(100vh - 174px);
+}
+
+.footer {
+  height: 29px;
+  padding-left: 1rem;
+}
+
+.header,
+.main {
+  padding: 1rem;
+}

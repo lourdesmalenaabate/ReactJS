@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ejercicio Redux</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body
+    style="height: 100vh"
+    class="d-flex flex-column justify-content-between bg-secondary text-light p-2"
+  >
+    <header>
+      <h1>My Todo List</h1>
+    </header>
+    <main style="height: calc(100vh - 65px)" class="p-2">
+      <div class="h-75 d-flex flex-column justify-content-between mt-4">
+        <section>
+          <h3>Lista de Tareas</h3>
+          <div
+            style="width: 430px"
+            class="m-auto d-flex flex-column align-items-center mt-4"
+          >
+            <ul id="todos-container" class="w-50 mb-4"></ul>
+            <button id="clear-todos" class="btn btn-light">Borrar Lista</button>
+          </div>
+        </section>
+        <section>
+          <h3>Agregar Nueva tarea</h3>
+          <form
+            id="add-todo"
+            style="width: 400px; height: 80px"
+            class="m-auto d-flex justify-content-evenly align-items-center mt-4"
+          >
+            <label for="add">Nombre</label> <input id="add" name="todoText" />
+            <button class="btn btn-light">Agregar</button>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer class="d-flex justify-content-center">
+      <span>&copy;Copyrigth</span>
+    </footer>
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Redux -->
+    <script>
+      //Root de Vistas
+      const todosContainer = document.querySelector("#todos-container");
+      //Elementos de HTML
+      const form = document.querySelector("#add-todo");
+      const clearButton = document.querySelector("#clear-todos");
+
+      //Estado inicial del state
+      const initialState = {
+        todos: [{ id: 123456789, text: "Una tarea", done: false }],
+      };
+
+      //Root Reducer (usa valor por defecto de ES6)
+      function reducer(state = initialState, action) {
+        switch (action.type) {
+          case "ADD_TODO": {
+            const newTodos = [
+              ...state.todos,
+              { id: Date.now(), text: action.text, done: false },
+            ]; //Creamos un nuevo objeto state agregando la nueva tarea
+            return { ...state, todos: newTodos }; //Retornamos el nuevo state
+          }
+          case "TOGGLE_DONE": {
+            const newTodos = state.todos.map((todo) =>
+              todo.id === action.id ? { ...todo, done: !todo.done } : todo
+            ); //Generamos un nuevo state usando map para modificar el valor almacenado en la propiedad done de la tarea que genera la acción
+            return { ...state, todos: newTodos }; //Retornamos el nuevo state
+          }
+          case "CLEAR_TODOS":
+            return { ...state, todos: [] }; //Retornamos un state vacío para limpiar todas la tareas
+          default:
+            return state; //Retorno del valor de state por defecto
+        }
+      }
+
+      //Creación del store
+      const store = Redux.createStore(reducer);
+      renderTodos(); //Renderización de las vistas
+      store.subscribe(renderTodos); //Escucha de los cambios en el state para volver a renderizar las vistas
+
+      //Dispatch de acciones
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const text = event.target.elements.todoText.value;
+        store.dispatch({
+          type: "ADD_TODO",
+          text,
+        });
+      });
+
+      clearButton.addEventListener("click", () =>
+        store.dispatch({ type: "CLEAR_TODOS" })
+      );
+
+      //Creación de las vistas
+      function renderTodos() {
+        const { todos } = store.getState(); //Obtención y destructuración del state
+        todosContainer.innerHTML = ""; //Limpieza de los elementos de lista en cada nuevo renderizado
+
+        //Creación de los items de la lista usando los valores del state
+        todos.forEach((todo) => {
+          const el = document.createElement("li");
+          el.className = "mb-2";
+          el.textContent = todo.text;
+          if (todo.done) el.style.textDecoration = "line-through";
+          const btn = document.createElement("button");
+          btn.className = "btn btn-light ms-4";
+          btn.textContent = "Done";
+          btn.addEventListener("click", () =>
+            store.dispatch({ type: "TOGGLE_DONE", id: todo.id })
+          );
+          el.appendChild(btn);
+          todosContainer.appendChild(el);
+        });
+      }
+    </script>
+  </body>
+</html>

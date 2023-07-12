@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redux basic example</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <p>
+        Clicked: <span id="value">0</span> times
+        <button id="increment">+</button>
+        <button id="decrement">-</button>
+      </p>
+    </div>
+    <script>
+      //Reducer (función pura que modifica el store)
+      function contadorReducer(state, action) {
+        //Crear valor de state en el store
+        if (typeof state === "undefined") return { contador: 0 };
+
+        //Modificar el valor del state (analizar la action para saber cómo modificar)
+        switch (action.type) {
+          //Qué
+          case "INCREMENT":
+            //Cómo
+            return {
+              ...state,
+              contador: state.contador + 1,
+            };
+
+          case "DECREMENT":
+            return {
+              ...state,
+              contador: state.contador - action.payload,
+            };
+
+          default:
+            return state;
+        }
+      }
+
+      //Crear el store
+      const store = Redux.createStore(contadorReducer);
+      console.log(store);
+      console.log(store.getState());
+
+      //Mostrar los valores en el state
+      const valueEl = document.getElementById("value");
+      function render() {
+        const state = store.getState().contador;
+        console.log(state);
+        valueEl.innerHTML = state.toString();
+      }
+      render();
+
+      //Escuchar el cambio del store para ejecutar render
+      store.subscribe(render);
+
+      //Crear eventos que modifiquen el store
+      const btnSumar = document.getElementById("increment");
+      const btnRestar = document.getElementById("decrement");
+
+      btnSumar.addEventListener("click", () => {
+        const action = {
+          type: "INCREMENT",
+        };
+        store.dispatch(action);
+      });
+
+      btnRestar.addEventListener("click", () => {
+        const action = {
+          type: "DECREMENT",
+          payload: 1,
+        };
+        store.dispatch(action);
+      });
+    </script>
+  </body>
+</html>

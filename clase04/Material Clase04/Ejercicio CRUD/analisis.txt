@@ -1,0 +1,9 @@
+Nuestra App consiste en 4 Componentes:
+
+    => App - El Componente principal "La fuente única de la Verdad". Todos los métodos de manipulación y datos de la BD son declarados acá y pasados a los hijos según corresponda
+
+    => CrudForm - Componente encargado del Formulario. Recibe los métodos de manipulación de la BD de su Componente padre CrudAPP
+
+    => CrudTable - Componente encargado de la renderización de los datos de la BD. Recibe los datos de su Componente padre CrudApp y se los pasa a su Componente hijo CrudTableRow junto con los métodos de manipulación de la BD correspondientes
+
+    => CrudTableRow - Componente encargado de renderización de cada elemento almacenado en la BD. Recibe todos los datos necesarios de su Componente padre CrudTable

@@ -1,0 +1,31 @@
+1 - Crear una APP que permita realizar las 4 funciones básicas de manejo de archivos (CRUD). Para ello es necesario trabajar con Formularios Controlados y Renderizado de Listas (resuelto en carpeta Ejercicio CRUD). Utilizar los siguientes datos: 
+initialDb = [
+  {
+    id: 1,
+    name: "Harry Potter",
+    house: "Gryffindor",
+  },
+  {
+    id: 2,
+    name: "Hermione Granger",
+    house: "Gryffindor",
+  },
+  {
+    id: 3,
+    name: "Draco Malfoy",
+    house: "Slythering",
+  },
+  {
+    id: 4,
+    name: "Ceddric Diggory",
+    house: "Hufflepuff",
+  },
+  {
+    id: 5,
+    name: "Luna Lovegood",
+    house: "Ravenclaw",
+  },
+];
+
+2 - Realizar una APP que muestre el menú de una cafetería. Dentro de la carpeta Ejercicio Menu se encuentra el ejercicio resulto (carpeta final) y la estructura inicial (setup).
+

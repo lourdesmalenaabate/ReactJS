@@ -1,0 +1,10 @@
+//¿Qué puede hacer mi app para modificar el state?
+
+export const TYPES = {
+  GET_ALL_PRODUCTS: "GET_ALL_PRODUCTS",
+  ADD_TO_CART: "ADD_TO_CART",
+  REMOVE_ONE_FROM_CART: "REMOVE_ONE_FROM_CART",
+  REMOVE_ALL_FROM_CART: "REMOVE_ALL_FROM_CART",
+  CLEAR_CART: "CLEAR_CART",
+  NO_PRODUCTS: "NO_PRODUCTS",
+};

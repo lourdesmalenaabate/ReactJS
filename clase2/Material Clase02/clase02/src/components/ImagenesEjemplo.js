@@ -1,0 +1,18 @@
+import React from "react";
+import "./ImagenesEjemplo.css";
+
+const ImagenesEjemplo = ({ images, id, rows }) => {
+  return (
+    <div className="container">
+      <div className={`row row-cols-1 row-cols-lg-${rows} max`}>
+        {images.map((el, i) => (
+          <div key={`img-${id}${i}`} className="col mb-3">
+            <img src={el} alt="" className="img" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ImagenesEjemplo;

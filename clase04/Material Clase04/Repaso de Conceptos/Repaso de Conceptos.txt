@@ -1,0 +1,13 @@
+Virtual DOM 
+	=> Es un elemento utilizado por React para comparar la versión disponible en código con lo que se encuentra en DOM Real y, de esa forma, sólo ejecutar las modificaciones necesarias. Ideal para mejorar la performance de la aplicación.
+
+State y Props 
+	=> State objeto sólo accesible desde el Componente que lo contiene. Sólo puede existir en Componentes de Clase
+	=> Props valores que el Componente Padre puede pasarle al Componente Hijo para cambiar lo que se renderiza
+
+Ciclo de Vida
+	=> Todos los Componentes en React se Crean y son envíados al Virtual DOM para que los Monte. Cada vez que cambiamos el State, el Virtual DOM Desmonta el Componente, lo Actualiza y lo vuelve a Montar.
+	=> Métodos de Ciclo de Vida son funciones que se ejecutan en durante el ciclo "Montaje, Actualización, Desmontaje" que nos permite realizar acciones en alguna de esas fases.
+
+Hooks
+	=> Surgidos a partir de la versión 16.8, entre otras cosas, permiten la implementación de State (useState) y Métodos de Ciclo de Vida (useEffect) en los Componentes Funcionales

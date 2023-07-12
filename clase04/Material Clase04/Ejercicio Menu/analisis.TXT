@@ -1,0 +1,8 @@
+Nuestra App consta de 2 Componentes y un archivo auxiliar:
+
+//Auxiliar
+	data.js => JSON de datos a renderizar
+
+//Componentes
+ 	App => Importa el JSON y arma la vista
+	Menu => Recibe el JSON y renderiza cada elemento

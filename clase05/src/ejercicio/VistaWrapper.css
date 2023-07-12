@@ -1,0 +1,12 @@
+.main {
+  padding: 1rem;
+}
+
+@media (min-width: 992px) {
+  .main {
+    position: absolute;
+    top: 8%;
+    left: 28%;
+    padding: 0;
+  }
+}

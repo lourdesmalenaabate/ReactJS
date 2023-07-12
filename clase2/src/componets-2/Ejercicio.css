@@ -1,0 +1,38 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+}
+
+.contenedor,
+.contenedor-btn {
+  margin: auto;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contenedor-btn {
+  width: 50%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.boton {
+  margin-bottom: 1rem;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000;
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ejercicio Redux</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body
+    style="height: 100vh"
+    class="d-flex flex-column justify-content-between bg-secondary text-light p-2"
+  >
+    <header>
+      <h1>My Todo List</h1>
+    </header>
+    <main style="height: calc(100vh - 65px)" class="p-2">
+      <div class="h-75 d-flex flex-column justify-content-between mt-4">
+        <section>
+          <h3>Lista de Tareas</h3>
+          <div
+            style="width: 430px"
+            class="m-auto d-flex flex-column align-items-center mt-4"
+          >
+            <ul id="todos-container" class="w-50 mb-4"></ul>
+            <button id="clear-todos" class="btn btn-light">Borrar Lista</button>
+          </div>
+        </section>
+        <section>
+          <h3>Agregar Nueva tarea</h3>
+          <form
+            id="add-todo"
+            style="width: 400px; height: 80px"
+            class="m-auto d-flex justify-content-evenly align-items-center mt-4"
+          >
+            <label for="add">Nombre</label> <input id="add" name="todoText" />
+            <button class="btn btn-light">Agregar</button>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer class="d-flex justify-content-center">
+      <span>&copy;Copyrigth</span>
+    </footer>
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

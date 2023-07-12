@@ -1,0 +1,124 @@
+/* ------ */
+/* Global */
+/* ------ */
+
+body {
+  margin: 100px 0 0 0;
+  background: #5e3fde;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.leaderboard {
+  display: flex;
+}
+
+/* -------------------- */
+/* Leaderboard Controle */
+/* -------------------- */
+
+.leaderboard-controls {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.leaderboard-controls__button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.leaderboard-controls__button:first-child {
+  margin-top: 0;
+}
+
+.icon {
+  width: 40%;
+  display: block;
+}
+
+.icon__line {
+  fill: none;
+  stroke: #020357;
+  stroke-width: 20;
+  stroke-linecap: round;
+  stroke-miterlimit: 20;
+  transition: stroke 0.2s;
+}
+
+.leaderboard-controls__button:hover .icon__line {
+  stroke: #e33755;
+}
+
+/* ---------------- */
+/* Leaderboard List */
+/* ---------------- */
+
+.leaderboard-list {
+  width: 180px;
+}
+
+.leaderboard-list__item {
+  background: #b5acfd;
+  margin-top: 10px;
+  display: flex;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 6px;
+  overflow: hidden;
+  transform-origin: center top;
+}
+
+.leaderboard-list__item:first-child {
+  margin-top: 0;
+}
+
+.leaderboard-list__item__place {
+  background: #020357;
+  width: 46px;
+  border-bottom-right-radius: 26px;
+  color: #ffb11c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+}
+
+.leaderboard-list__item__name {
+  padding: 10px;
+}
+
+/*Clases de CSSTransition*/
+
+.leaderboard-list__item--enter {
+  transform: rotateX(-90deg);
+}
+.leaderboard-list__item--enter-active {
+  transform: rotateX(0);
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+/*.leaderboard-list__item--enter-done {}
+
+.leaderboard-list__item--exit {} */
+.leaderboard-list__item--exit-active {
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.55, 0, 1, 0.45), opacity 0.5s;
+}

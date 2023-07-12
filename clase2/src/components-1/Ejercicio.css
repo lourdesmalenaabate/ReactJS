@@ -1,0 +1,17 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+}
+
+h1 {
+  padding: 1rem;
+}
+
+.contenedor {
+  width: 75%;
+  height: 500px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

@@ -1,0 +1,12 @@
+//Desarrollo
+
+Para trabajar con el código en el ambiente de desarrollo, abrir la carpeta clase01 con VSCode y abrir una terminal (ctrl+shift+ñ) y ejecutar los siguientes comandos:
+
+1. npm install - Instala todas las dependencias necesarias para el proyecto (sólo la primera vez)
+2. npm start - Levanta el servidor de desarrollo para que podamos ver los cambios efectauados al proyecto
+3. npm run build - Cuando finalizamos con las modificaciones para crear un código de Producción
+
+
+//Producción
+
+Si sólo queremos consultar el material en producción, abrir la carpeta build con VSCode y usar el LiveServer para abrir el archivo index.html
